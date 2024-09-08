@@ -29,4 +29,5 @@ const contactsSchema = new Schema(
   { versionKey: false, timestamps: true },
 );
 
-export const ContactsCollection = model('contact', contactsSchema);
+const ContactsCollection = model('contact', contactsSchema);
+export default ContactsCollection;
