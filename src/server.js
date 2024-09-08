@@ -6,10 +6,9 @@ import errorHandler from './middlewares/errorHandler.js';
 import notFoundHandler from './middlewares/notFoundHandler.js';
 import contactsRouters from './routers/contacts.js';
 
-const PORT = Number(env('PORT', 3000));
-
 export const setupServer = () => {
   const app = express();
+  const PORT = Number(env('PORT', 3000));
   const logger = pino({
     transport: {
       target: 'pino-pretty',
@@ -20,7 +19,7 @@ export const setupServer = () => {
   app.use(cors());
   app.use(logger);
 
-  app.use(contactsRouters);
+  app.use('/contacts', contactsRouters);
 
   app.use(notFoundHandler);
   app.use(errorHandler);
