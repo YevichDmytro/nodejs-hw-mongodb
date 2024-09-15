@@ -2,7 +2,7 @@ import { Router } from 'express';
 import {
   createContactController,
   deleteContactController,
-  getAllContactsController,
+  getContactsController,
   getContactByIdController,
   patchContactController,
 } from '../controllers/contacts.js';
@@ -16,7 +16,7 @@ import { isValidId } from '../middlewares/isValidId.js';
 
 const contactsRouters = Router();
 
-contactsRouters.get('/', ctrlWrapper(getAllContactsController));
+contactsRouters.get('/', ctrlWrapper(getContactsController));
 
 contactsRouters.get(
   '/:contactId',
