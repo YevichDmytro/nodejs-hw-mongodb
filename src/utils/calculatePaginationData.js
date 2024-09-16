@@ -1,5 +1,5 @@
-const calculatePaginationData = ({ totalItems, perPage, page }) => {
-  const totalPages = Math.ceil(totalItems / perPage);
+const calculatePaginationData = ({ contactsCount, perPage, page }) => {
+  const totalPages = Math.ceil(contactsCount / perPage);
   const hasNextPage = page !== totalPages;
   const hasPreviousPage = page !== 1;
 
