@@ -15,7 +15,7 @@ const contactsSchema = new Schema(
       type: String,
       required: false,
     },
-    isFavourite: {
+    isFavorite: {
       type: Boolean,
       default: false,
       required: false,
@@ -29,6 +29,16 @@ const contactsSchema = new Schema(
   },
   { versionKey: false, timestamps: true },
 );
+
+export const sortFields = [
+  'name',
+  'phoneNumber',
+  'email',
+  'isFavorite',
+  'contactType',
+  'createdAt',
+  'updatedAt',
+];
 
 const ContactsCollection = model('contact', contactsSchema);
 export default ContactsCollection;
