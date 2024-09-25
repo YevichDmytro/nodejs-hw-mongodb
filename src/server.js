@@ -2,9 +2,10 @@ import express from 'express';
 import pino from 'pino-http';
 import cors from 'cors';
 import { env } from './utils/env.js';
-import errorHandler from './middlewares/errorHandler.js';
-import notFoundHandler from './middlewares/notFoundHandler.js';
+import authRouter from './routers/auth.js';
 import contactsRouters from './routers/contacts.js';
+import notFoundHandler from './middlewares/notFoundHandler.js';
+import errorHandler from './middlewares/errorHandler.js';
 
 export const setupServer = () => {
   const app = express();
@@ -19,6 +20,7 @@ export const setupServer = () => {
   app.use(cors());
   app.use(logger);
 
+  app.use('/auth', authRouter);
   app.use('/contacts', contactsRouters);
 
   app.use(notFoundHandler);
