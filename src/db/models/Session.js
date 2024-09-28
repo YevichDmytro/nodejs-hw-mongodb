@@ -16,11 +16,11 @@ const sessionSchema = new Schema(
       required: true,
     },
     accessTokenValidUntil: {
-      type: Data,
+      type: Date,
       required: true,
     },
     accessTokenValidUntil: {
-      type: Data,
+      type: Date,
       required: true,
     },
   },

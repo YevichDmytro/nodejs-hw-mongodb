@@ -13,16 +13,23 @@ export const signupController = async (req, res) => {
 export const signinController = async (req, res) => {
   const signinCredits = await authServices.signin(req.body);
 
-  res.cookie('refreshToken', session.refreshToken, {
+  res.cookie('refreshToken', signinCredits.refreshToken, {
     httpOnly: true,
-    expire: new Data(Data.now() + session.refreshTokenValidUntil),
+    expire: new Date(Date.now() + signinCredits.refreshTokenValidUntil),
   });
+
+  res.cookie('sessionId', signinCredits._id);
 
   res.json({
     status: 200,
     message: 'Successfully logged in an user!',
     data: {
-      accessToken: session.accessToken,
+      accessToken: signinCredits.accessToken,
     },
   });
+};
+
+export const refreshController = async (req, res) => {
+  const { refreshToken, sessionId } = req.cookies;
+  console.log(req.cookies);
 };

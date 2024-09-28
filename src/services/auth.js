@@ -26,7 +26,7 @@ export const signup = async (payload) => {
   return data;
 };
 
-export const singin = async (payload) => {
+export const signin = async (payload) => {
   const { email, password } = payload;
   const user = await UserCollection.findOne({ email });
   if (!user) throw createHttpError(401, 'Email or password invalid');
@@ -37,10 +37,10 @@ export const singin = async (payload) => {
   await SessionCollection.deleteOne({ userId: user._id });
 
   const accessToken = randomBytes(30).toString('base64');
-  const accessTokenValidUntil = new Data(Date.now() + accessTokenLifetime);
-  
+  const accessTokenValidUntil = new Date(Date.now() + accessTokenLifetime);
+
   const refreshToken = randomBytes(30).toString('base64');
-  const refreshTokenValidUntil = new Data(Date.now() + refreshTokenLifetime);
+  const refreshTokenValidUntil = new Date(Date.now() + refreshTokenLifetime);
 
   const userSession = await SessionCollection.create({
     userId: user._id,
@@ -52,3 +52,8 @@ export const singin = async (payload) => {
 
   return userSession;
 };
+
+export const findSessionByAccessToken = (accessToken) =>
+  SessionCollection.findOne({ accessToken });
+
+export const findUser = (filter) => UserCollection.findOne(filter);
