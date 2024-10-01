@@ -46,8 +46,9 @@ export const getContacts = async ({
     ...paginationData,
   };
 };
+
 export const getContact = async (filter) =>
-  await ContactsCollection.findById(filter);
+  await ContactsCollection.findOne(filter);
 
 export const createContact = async (payload) =>
   await ContactsCollection.create(payload);
