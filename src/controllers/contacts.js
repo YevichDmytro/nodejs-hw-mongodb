@@ -1,8 +1,8 @@
 import createHttpError from 'http-errors';
-import * as contactsServices from '../services/contacts.js';
-import parsePaginationParams from '../utils/parsePaginationParams.js';
-import parseSortParams from '../utils/parseSortParams.js';
 import { sortFields } from '../db/models/Contacts.js';
+import * as contactsServices from '../services/contacts.js';
+import parseSortParams from '../utils/parseSortParams.js';
+import parsePaginationParams from '../utils/parsePaginationParams.js';
 import parseContactFilterParams from '../utils/filters/parseContactFilterParams.js';
 
 export const getContactsController = async (req, res) => {
