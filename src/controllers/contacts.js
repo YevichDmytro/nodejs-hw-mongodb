@@ -1,6 +1,6 @@
 import createHttpError from 'http-errors';
-import { sortFields } from '../db/models/Contacts.js';
 import * as contactsServices from '../services/contacts.js';
+import { sortFields } from '../db/models/Contacts.js';
 import parseSortParams from '../utils/parseSortParams.js';
 import parsePaginationParams from '../utils/parsePaginationParams.js';
 import parseContactFilterParams from '../utils/filters/parseContactFilterParams.js';
