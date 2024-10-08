@@ -13,6 +13,7 @@ const authenticate = async (req, res, next) => {
     );
 
   const session = await authServices.findSessionByAccessToken(token);
+
   if (!token) return next(createHttpError(401, 'Session not found'));
 
   if (new Date() > session.accessTokenValidUntil)

@@ -4,6 +4,9 @@ import { sortFields } from '../db/models/Contacts.js';
 import parseSortParams from '../utils/parseSortParams.js';
 import parsePaginationParams from '../utils/parsePaginationParams.js';
 import parseContactFilterParams from '../utils/filters/parseContactFilterParams.js';
+import { saveFileToUploadDir } from '../utils/saveFileToUploadDir.js';
+import { saveFileToCloudinary } from '../utils/saveFileToCloudinary.js';
+import { env } from '../utils/env.js';
 
 export const getContactsController = async (req, res) => {
   const { perPage, page } = parsePaginationParams(req.query);
@@ -56,9 +59,23 @@ export const createContactController = async (req, res) => {
 export const patchContactController = async (req, res) => {
   const { contactId } = req.params;
   const { _id: userId } = req.user;
+
+  const photo = req.file;
+
+  let photoUrl;
+
+  if (photo) {
+    if (env('ENABLE_CLOUDINARY') === 'true') {
+      photoUrl = await saveFileToCloudinary(photo);
+    } else {
+      photoUrl = await saveFileToUploadDir(photo);
+      console.log('first');
+    }
+  }
+
   const data = await contactsServices.patchContact(
     { _id: contactId, userId },
-    req.body,
+    { ...req.body, photo: photoUrl },
   );
 
   if (!data) {
