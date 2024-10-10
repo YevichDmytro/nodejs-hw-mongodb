@@ -1,0 +1,14 @@
+{
+  "web": {
+    "client_id": "767639905069-nk6ummhsosb30v393v6mu5unhvuqhl68.apps.googleusercontent.com",
+    "project_id": "myfirstproject-438120",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_secret": "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",
+    "redirect_uris": [
+      "http://localhost:3000/confirm-google-auth",
+      "https://nodejs-hw-mongodb-z0ha.onrender.com/confirm-google-auth"
+    ]
+  }
+}
