@@ -1,1 +1,8 @@
-{}
+{
+  "web": {
+    "redirect_uris": [
+      "http://localhost:3000/confirm-google-auth",
+      "https://nodejs-hw-mongodb-z0ha.onrender.com/confirm-google-auth"
+    ]
+  }
+}
