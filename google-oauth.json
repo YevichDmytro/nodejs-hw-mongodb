@@ -1,6 +1,5 @@
 {
   "web": {
-    "client_id": "767639905069-nk6ummhsosb30v393v6mu5unhvuqhl68.apps.googleusercontent.com",
     "project_id": "myfirstproject-438120",
     "auth_uri": "https://accounts.google.com/o/oauth2/auth",
     "token_uri": "https://oauth2.googleapis.com/token",
