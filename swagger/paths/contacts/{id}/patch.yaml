@@ -17,15 +17,7 @@ requestBody:
     multipart/form-data:
       schema:
         type: object
-        required:
-          - name
-          - phoneNumber
-          - contactType
         properties:
-          _id:
-            description: "Contact's id"
-            type: string
-            example: 6706881284017e9cc3b94106
           name:
             description: "Contact's name"
             type: string
