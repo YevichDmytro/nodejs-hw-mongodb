@@ -390,7 +390,7 @@
                   },
                   "phoneNumber": {
                     "type": "number",
-                    "description": "Contact's phoneNumber",
+                    "description": "Contact's phone number",
                     "example": 380998887766
                   },
                   "email": {
