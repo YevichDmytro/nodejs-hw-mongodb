@@ -205,18 +205,13 @@
                   "contactType"
                 ],
                 "properties": {
-                  "_id": {
-                    "description": "Contact's id",
-                    "type": "string",
-                    "example": "6706881284017e9cc3b94106"
-                  },
                   "name": {
                     "description": "Contact's name",
                     "type": "string",
                     "example": "John Doe"
                   },
                   "phoneNumber": {
-                    "description": "Contact's phoneNumber",
+                    "description": "Contact's phone number",
                     "type": "number",
                     "example": 380998887766
                   },
@@ -238,11 +233,6 @@
                       "home",
                       "personal"
                     ]
-                  },
-                  "userId": {
-                    "description": "Contact's user id",
-                    "type": "string",
-                    "example": "65e4decdd286b30065d54af9"
                   },
                   "photo": {
                     "description": "Link to contact's photo",
@@ -368,9 +358,9 @@
         "tags": [
           "Contacts"
         ],
-        "summary": "Update contact by id",
+        "summary": "Update contact",
         "operationId": "updateContact",
-        "description": "Update a contact by id with payload",
+        "description": "Update a contact with the provided payload",
         "security": [
           {
             "bearerAuth": []
@@ -392,50 +382,35 @@
             "multipart/form-data": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "name",
-                  "phoneNumber",
-                  "contactType"
-                ],
                 "properties": {
-                  "_id": {
-                    "description": "Contact's id",
-                    "type": "string",
-                    "example": "6706881284017e9cc3b94106"
-                  },
                   "name": {
-                    "description": "Contact's name",
                     "type": "string",
+                    "description": "Contact's name",
                     "example": "John Doe"
                   },
                   "phoneNumber": {
-                    "description": "Contact's phoneNumber",
                     "type": "number",
+                    "description": "Contact's phoneNumber",
                     "example": 380998887766
                   },
                   "email": {
-                    "description": "Contact's email",
                     "type": "string",
+                    "description": "Contact's email",
                     "example": "exampleMail@gmail.com"
                   },
                   "isFavorite": {
-                    "description": "Contact's status",
                     "type": "boolean",
+                    "description": "Contact's status",
                     "example": true
                   },
                   "contactType": {
-                    "description": "Contact's type",
                     "type": "string",
+                    "description": "Contact's type",
                     "enum": [
                       "work",
                       "home",
                       "personal"
                     ]
-                  },
-                  "userId": {
-                    "description": "Contact's user id",
-                    "type": "string",
-                    "example": "65e4decdd286b30065d54af9"
                   },
                   "photo": {
                     "description": "Link to contact's photo",
@@ -448,7 +423,7 @@
           }
         },
         "responses": {
-          "201": {
+          "200": {
             "description": "Updates a contact",
             "content": {
               "application/json": {
@@ -462,7 +437,7 @@
                   "properties": {
                     "status": {
                       "type": "integer",
-                      "example": 201
+                      "example": 200
                     },
                     "message": {
                       "type": "string",
